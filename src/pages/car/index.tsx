@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Container } from "../../components/container"
 import { FaWhatsapp } from "react-icons/fa"
 import { useNavigate, useParams } from "react-router-dom"
-import { getDoc, doc, snapshotEqual } from "firebase/firestore"
+import { getDoc, doc } from "firebase/firestore"
 import { db } from "../../serveces/firebaseConection"
 import { SwiperSlide, Swiper } from "swiper/react"
 
