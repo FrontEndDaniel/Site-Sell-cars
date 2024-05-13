@@ -50,7 +50,7 @@ export function CarDetail() {
             name: snapshot.data()?.name,
             year: snapshot.data()?.year,
             uid: snapshot.data()?.uid,
-            price: snapshot.data()?.price,
+            price: formatarMoeda(parseInt(snapshot.data()?.price)),
             city: snapshot.data()?.city,
             km: snapshot.data()?.km,
             model: snapshot.data()?.model,
@@ -82,6 +82,15 @@ export function CarDetail() {
       window.removeEventListener("resize", handleResize)
     }
   }, [])
+
+  function formatarMoeda(valor: number) {
+    let valorFormatado = valor.toLocaleString("pt-br",
+      {
+        style: "currency",
+        currency: "BRL"
+      })
+    return valorFormatado;
+  }
 
 
   return (

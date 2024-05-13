@@ -48,7 +48,7 @@ export function Dashboard() {
             year: doc.data().year,
             km: doc.data().km,
             city: doc.data().city,
-            price: doc.data().price,
+            price: formatarMoeda(parseInt(doc.data().price)),
             images: doc.data().images,
             uid: doc.data().uid
           })
@@ -59,7 +59,17 @@ export function Dashboard() {
     }
 
     loadCars();
+
   }, [user])
+
+  function formatarMoeda(valor: number) {
+    let valorFormatado = valor.toLocaleString("pt-br",
+      {
+        style: "currency",
+        currency: "BRL"
+      })
+    return valorFormatado;
+  }
 
   
   async function handleDeleteCars(car: CarsProps) {
@@ -103,7 +113,7 @@ export function Dashboard() {
 
             <div className="flex flex-col px-2">
               <span className="text-zinc-700 mb-6">Ano {car.year} | {car.km} km</span>
-              <strong className="text-black font-medium text-xl">R$:{car.price}</strong>
+              <strong className="text-black font-medium text-xl">{car.price}</strong>
             </div>
 
             <div className="w-full h-px bg-slate-200 my-2"></div>

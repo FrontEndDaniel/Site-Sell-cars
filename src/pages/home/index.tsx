@@ -45,7 +45,7 @@ export function Home() {
           year: doc.data().year,
           km: doc.data().km,
           city: doc.data().city,
-          price: doc.data().price,
+          price: formatarMoeda(parseInt(doc.data().price)),
           images: doc.data().images,
           uid: doc.data().uid
         })
@@ -54,6 +54,15 @@ export function Home() {
 
     })
 
+  }
+
+  function formatarMoeda(valor: number) {
+    let valorFormatado = valor.toLocaleString("pt-br",
+      {
+        style: "currency",
+        currency: "BRL"
+      })
+    return valorFormatado;
   }
 
   function handleImageLoad(id: string) {
@@ -81,7 +90,7 @@ export function Home() {
         year: doc.data().year,
         km: doc.data().km,
         city: doc.data().city,
-        price: doc.data().price,
+        price: formatarMoeda(parseInt(doc.data().price)),
         images: doc.data().images,
         uid: doc.data().uid
       })
@@ -119,7 +128,7 @@ export function Home() {
               <div className="w-full h-72 rounded-lg bg-slate-200"
                 style={{ display: loadImage.includes(car.id) ? "none" : "block" }}></div>
               <img
-                className="w-full rounded-lg mb-2 max-h-72 hover:scale-105 transition-all"
+                className="w-full rounded-lg mb-2 max-h-56 min-h-56 hover:scale-105 transition-all"
                 src={car.images[0].url}
                 alt="Carro"
                 onLoad={() => handleImageLoad(car.id)}
@@ -128,7 +137,7 @@ export function Home() {
 
               <div className="flex flex-col px-2">
                 <span className="text-zinc-700 mb-6">Ano {car.year} | {car.km} km</span>
-                <strong className="text-black font-medium text-xl">R$:{car.price}</strong>
+                <strong className="text-black font-medium text-xl">{car.price}</strong>
               </div>
 
               <div className="w-full h-px bg-slate-200 my-2"></div>
