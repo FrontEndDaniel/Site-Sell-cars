@@ -9,9 +9,9 @@ export function DashboardHeader() {
     return (
         <div className="w-full items-center flex h-10 bg-red-500 rounded-lg text-white font-medium gap-4 px-4 mb-4">
             <Link to="/dashboard">DashBoard</Link>
-            <Link to="/dashboard/new">Cadastrar novo carro</Link>
-            <Link to="/register">Cadastrar novo usuário</Link>
-            <button className="ml-auto" onClick={handleLogout}>Sair da conta</button>
+            <Link to="/dashboard/new">Novo carro</Link>
+            <Link to="/register">Novo usuário</Link>
+            <button className="ml-auto" onClick={handleLogout}>Sair</button>
         </div>
     )
 }
