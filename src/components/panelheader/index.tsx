@@ -7,7 +7,7 @@ export function DashboardHeader() {
         await signOut(auth)
     }
     return (
-        <div className="w-full items-center flex h-10 bg-red-500 rounded-lg text-white font-medium gap-4 px-4 mb-4">
+        <div className="w-full items-center flex h-14 bg-red-500 rounded-lg text-white font-medium gap-4 px-4 mb-4">
             <Link to="/dashboard">DashBoard</Link>
             <Link to="/dashboard/new">Novo carro</Link>
             <Link to="/register">Novo usuário</Link>
